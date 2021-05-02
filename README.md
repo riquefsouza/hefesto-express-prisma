@@ -31,4 +31,8 @@ The server is now running on `http://localhost:3000`.
 ```
 npm install http-status-codes --save
 npm install nodemon --save-dev
+npm install swagger-ui-express --save
+npm install @types/swagger-ui-express --save-dev
 ```
+
+To see documentarion http://localhost:3000/api-docs/

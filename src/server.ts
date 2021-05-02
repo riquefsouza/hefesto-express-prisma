@@ -1,11 +1,20 @@
 import { PrismaClient } from '@prisma/client'
 import express from 'express'
+//import cors from 'cors';
+import swaggerUi from 'swagger-ui-express'
+import { swaggerDocument } from './base/openAPI/swagger'
 
 export const API_ROOT: string = '/api/v1'
 export const prisma = new PrismaClient()
 export const app = express()
 
 app.use(express.json())
+//app.use(cors(corsOptions))
+//app.use(bodyParser.json())
+//app.use(bodyParser.urlencoded({ extended: true}))
+//http://localhost:3000/api-docs/
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
 
 import './admin/controllers/AdmParameterCategoryController'
 import './admin/controllers/AdmMenuController'
