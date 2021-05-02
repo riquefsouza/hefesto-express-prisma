@@ -55,8 +55,6 @@ app.put('/post/:id/views', async (req, res) => {
   } catch (error) {
     res.json({ error: `Post with ID ${id} does not exist in the database` })
   }
-
-
 })
 
 app.put('/publish/:id', async (req, res) => {

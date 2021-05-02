@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = "postgresql://postgres:abcd1234@localhost:5432/dbhefesto?schema=public"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model AdmPage {
-  id              Int           @id @map("pag_seq")
+  id              Int           @id @map("pag_seq") @default(autoincrement())
   description     String           @unique @map("pag_description") @db.VarChar(255)
   url             String           @unique @map("pag_url") @db.VarChar(255)
   admMenus        AdmMenu[]
@@ -18,7 +18,7 @@ model AdmPage {
 }
 
 model AdmMenu {
-  id            Int    @id @map("mnu_seq")
+  id            Int    @id @map("mnu_seq") @default(autoincrement())
   description   String    @unique @map("mnu_description") @db.VarChar(255)
   idMenuParent  Int?   @map("mnu_parent_seq")
   idPage        Int?   @map("mnu_pag_seq")
@@ -31,7 +31,7 @@ model AdmMenu {
 }
 
 model AdmParameterCategory {
-  id            Int         @id @map("pmc_seq")
+  id            Int         @id @map("pmc_seq") @default(autoincrement())
   description   String         @unique @map("pmc_description") @db.VarChar(64)
   order         Int?        @map("pmc_order")
   admParameters AdmParameter[]
@@ -40,7 +40,7 @@ model AdmParameterCategory {
 }
 
 model AdmParameter {
-  id                   Int               @id @map("par_seq")
+  id                   Int               @id @map("par_seq") @default(autoincrement())
   code                 String               @map("par_code") @db.VarChar(64)
   description          String               @unique @map("par_description") @db.VarChar(255)
   idParameterCategory  Int               @map("par_pmc_seq")
@@ -51,7 +51,7 @@ model AdmParameter {
 }
 
 model AdmProfile {
-  id               Int           @id @map("prf_seq")
+  id               Int           @id @map("prf_seq") @default(autoincrement())
   administrator    String?          @default("N") @map("prf_administrator") @db.Char(1)
   description      String           @unique @map("prf_description") @db.VarChar(255)
   general          String?          @default("N") @map("prf_general") @db.Char(1)
@@ -62,7 +62,7 @@ model AdmProfile {
 }
 
 model AdmUser {
-  id              Int           @id @map("usu_seq")
+  id              Int           @id @map("usu_seq") @default(autoincrement())
   active          String?          @default("N") @map("usu_active") @db.Char(1)
   email           String?          @unique @map("usu_email") @db.VarChar(255)
   login           String           @unique @map("usu_login") @db.VarChar(64)
@@ -74,7 +74,7 @@ model AdmUser {
 }
 
 model AdmPageProfile {
-  id         Int     @id @map("pgl_seq")
+  id         Int     @id @map("pgl_seq") @default(autoincrement())
   idProfile  Int     @map("pgl_prf_seq")
   idPage     Int     @map("pgl_pag_seq")
   admPage    AdmPage    @relation(fields: [idPage], references: [id])
@@ -85,7 +85,7 @@ model AdmPageProfile {
 }
 
 model AdmUserProfile {
-  id         Int     @id @map("usp_seq")
+  id         Int     @id @map("usp_seq") @default(autoincrement())
   idProfile  Int     @map("usp_prf_seq")
   idUser     Int     @map("usp_use_seq")
   admProfile AdmProfile @relation(fields: [idProfile], references: [id])
