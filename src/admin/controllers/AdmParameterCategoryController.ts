@@ -1,6 +1,6 @@
-import { ReasonPhrases, StatusCodes, getReasonPhrase, getStatusCode } from 'http-status-codes';
+import { StatusCodes } from 'http-status-codes';
 import { AdmParameterCategory } from '@prisma/client';
-import { API_ROOT, app, prisma } from '../server';
+import { API_ROOT, app, prisma } from '../../server';
 import { AdmParameterCategoryService } from '../services/index';
 
 const URL: string = API_ROOT + '/admParameterCategory';

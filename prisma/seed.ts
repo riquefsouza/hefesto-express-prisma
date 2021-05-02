@@ -1,3 +1,4 @@
+/*
 import { PrismaClient, Prisma } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -67,3 +68,4 @@ main()
   .finally(async () => {
     await prisma.$disconnect()
   })
+*/

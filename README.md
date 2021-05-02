@@ -28,9 +28,7 @@ npm run dev
 
 The server is now running on `http://localhost:3000`.
 
+```
 npm install http-status-codes --save
-
-npm install concurrently --save-dev
-npm install lite-server --save-dev
-npm install ts-node-dev --save-dev
 npm install nodemon --save-dev
+```
