@@ -1,4 +1,6 @@
-import { getAdmParameterCategory } from '../../admin/openAPI/admParameterCategory.swagger';
+import { AdmParameterCategory_schema, AdmParameterCategory_get, AdmParameterCategory_getById, 
+    AdmParameterCategory_post, AdmParameterCategory_put, AdmParameterCategory_delete } 
+from '../../admin/openAPI/admParameterCategory.swagger';
 
 export const swaggerDocument = {
     openapi: '3.0.1',
@@ -28,7 +30,18 @@ export const swaggerDocument = {
     ],
     paths: {
         "/admParameterCategory": {
-            "get": getAdmParameterCategory
+            "get": AdmParameterCategory_get, 
+            "post": AdmParameterCategory_post,
+            "put": AdmParameterCategory_put, 
+            "delete": AdmParameterCategory_delete
+        },
+        "/AdmParameterCategory/{id}": {
+            "get": AdmParameterCategory_getById
         }
-    }    
+    },
+    "components": {
+        "schemas": {
+            "AdmParameterCategory": AdmParameterCategory_schema
+        }
+    }
 }
