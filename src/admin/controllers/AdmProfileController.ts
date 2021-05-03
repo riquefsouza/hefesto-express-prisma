@@ -65,3 +65,18 @@ app.delete(`${URL}/:id`, async (req, res) => {
             .json({ error: `Parameter Category with ID ${id} does not exist in the database` })
     }
 })
+
+app.post(`${URL}/mountMenu`, async (req, res) => {
+    const listaIdProfile: number[] = req.body
+    return await service.mountMenuItem(listaIdProfile)
+})
+
+app.get(`${URL}/findProfilesByPage/:pageId`, async (req, res) => {
+    const { pageId }: { pageId?: number } = req.params
+    return await service.findProfilesByPage(pageId)
+})
+
+app.get(`${URL}/findProfilesByUser/:userId`, async (req, res) => {
+    const { userId }: { userId?: number } = req.params
+    return await service.findProfilesByUser(userId);
+})

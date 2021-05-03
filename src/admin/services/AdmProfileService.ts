@@ -1,4 +1,5 @@
 import { AdmProfile, PrismaClient } from '@prisma/client'
+import { MenuItemDTO } from '../../base/models/MenuItemDTO';
 
 export class AdmProfileService {
 
@@ -32,4 +33,18 @@ export class AdmProfileService {
             where: { id: id },
         })
     }
+
+    public async mountMenuItem(listaIdProfile: number[]) {
+       //: MenuItemDTO[] {
+        throw new Error('Method not implemented.');
+    }
+
+    public async findProfilesByUser(userId?: number) {
+        throw new Error('Method not implemented.');
+    }
+
+    public async findProfilesByPage(pageId?: number) {
+        throw new Error('Method not implemented.');
+    }
+
 }

@@ -17,6 +17,7 @@ export const AdmParameterCategory_schema = {
     },
     "additionalProperties": false
 }
+
 export const AdmParameterCategory_get = {
     "tags": [
         "AdmParameterCategory"
@@ -139,6 +140,7 @@ export const AdmParameterCategory_getById = {
         }
     }
 }
+
 export const AdmParameterCategory_put = {
     "tags": [
         "AdmParameterCategory"
@@ -200,5 +202,4 @@ export const AdmParameterCategory_delete = {
             "description": "Success"
         }
     }
-
 }
