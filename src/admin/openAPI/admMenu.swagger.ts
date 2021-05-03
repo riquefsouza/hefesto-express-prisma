@@ -35,6 +35,11 @@ export const AdmMenu_schema = {
 }
 
 export const AdmMenu_get = {
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
     "tags": [
       "AdmMenu"
     ],
@@ -72,6 +77,11 @@ export const AdmMenu_get = {
 }
 
 export const AdmMenu_post = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmMenu"
   ],
@@ -119,7 +129,12 @@ export const AdmMenu_post = {
 }
 
 export const AdmMenu_getById = {
-    "tags": [
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
       "AdmMenu"
     ],
     "parameters": [
@@ -158,6 +173,11 @@ export const AdmMenu_getById = {
 }
 
 export const AdmMenu_put = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmMenu"
   ],
@@ -199,6 +219,11 @@ export const AdmMenu_put = {
 }
 
 export const AdmMenu_delete = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmMenu"
   ],

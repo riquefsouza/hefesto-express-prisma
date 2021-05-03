@@ -73,6 +73,11 @@ export const MenuItemDTO_schema = {
 }
 
 export const AdmProfile_get = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
     "tags": [
       "AdmProfile"
     ],
@@ -110,6 +115,11 @@ export const AdmProfile_get = {
 }
 
 export const AdmProfile_post = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmProfile"
   ],
@@ -157,6 +167,11 @@ export const AdmProfile_post = {
 }
 
 export const AdmProfile_getById = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
     "tags": [
       "AdmProfile"
     ],
@@ -196,6 +211,11 @@ export const AdmProfile_getById = {
 }
 
 export const AdmProfile_put = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmProfile"
   ],
@@ -237,6 +257,11 @@ export const AdmProfile_put = {
 }
 
 export const AdmProfile_delete = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmProfile"
   ],
@@ -259,6 +284,11 @@ export const AdmProfile_delete = {
 }
 
 export const AdmProfile_mountMenu = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
     "tags": [
       "AdmProfile"
     ],
@@ -311,6 +341,11 @@ export const AdmProfile_mountMenu = {
 }
 
 export const AdmProfile_findProfilesByPage = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmProfile"
   ],
@@ -359,6 +394,11 @@ export const AdmProfile_findProfilesByPage = {
 }
 
 export const AdmProfile_findProfilesByUser = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmProfile"
   ],

@@ -33,6 +33,10 @@ npm install http-status-codes --save
 npm install nodemon --save-dev
 npm install swagger-ui-express --save
 npm install @types/swagger-ui-express --save-dev
+npm install bcrypt --save
+npm install @types/bcrypt --save-dev
+npm install jsonwebtoken --save
+npm install @types/jsonwebtoken --save
 ```
 
 To see documentarion http://localhost:3000/api-docs/

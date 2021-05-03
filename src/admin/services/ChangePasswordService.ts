@@ -47,6 +47,17 @@ export class ChangePasswordService {
         return lista.includes(stexto);
     }
 
+    /*
+        As minimum requirements for user passwords, the following should be considered:
+        Minimum length of 8 characters;
+        Presence of at least 3 of the 4 character classes below:
+            uppercase characters;
+            lowercase characters;
+            numbers;
+            special characters;
+            Absence of strings (eg: 1234) or consecutive identical characters (yyyy);
+            Absence of any username identifier, such as: John Silva - user: john.silva - password cannot contain "john" or "silva".
+    */
     public validatePassword(login: string, senha: string): boolean {
         if (senha.length >= 8) {
             const letterUppercase = new RegExp('[A-Z]');

@@ -30,6 +30,11 @@ export const AdmPage_schema = {
 }
 
 export const AdmPage_get = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmPage"
   ],
@@ -67,6 +72,11 @@ export const AdmPage_get = {
 }
 
 export const AdmPage_post = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmPage"
   ],
@@ -114,6 +124,11 @@ export const AdmPage_post = {
 }
 
 export const AdmPage_getById = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
     "tags": [
       "AdmPage"
     ],
@@ -153,6 +168,11 @@ export const AdmPage_getById = {
 }
 
 export const AdmPage_put = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmPage"
   ],
@@ -194,6 +214,11 @@ export const AdmPage_put = {
 }
 
 export const AdmPage_delete = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmPage"
   ],

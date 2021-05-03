@@ -2,17 +2,18 @@ import { StatusCodes } from 'http-status-codes';
 import { AdmUser } from '@prisma/client';
 import { API_ROOT, app, prisma } from '../../server';
 import { AdmUserService } from '../services/index';
+import { AuthenticateJWT } from './../../base/middleware/AuthenticateJWT';
 
 const URL: string = API_ROOT + '/admUser';
 
 const service: AdmUserService = new AdmUserService(prisma);
 
-app.get(URL, async (req, res) => {
+app.get(URL, AuthenticateJWT, async (req, res) => {
     const list = await service.findAll()
     res.status(StatusCodes.OK).json(list)
 });
 
-app.get(`${URL}/:id`, async (req, res) => {
+app.get(`${URL}/:id`, AuthenticateJWT, async (req, res) => {
     const { id }: { id?: number } = req.params
     const obj = await service.findById(Number(id))
     if (obj == null) {
@@ -22,7 +23,7 @@ app.get(`${URL}/:id`, async (req, res) => {
     }
 })
 
-app.post(URL, async (req, res) => {
+app.post(URL, AuthenticateJWT, async (req, res) => {
     const admUser: AdmUser = req.body
     try {
         const obj = await service.insert(admUser)
@@ -32,7 +33,7 @@ app.post(URL, async (req, res) => {
     }
 })
 
-app.put(`${URL}/:id`, async (req, res) => {
+app.put(`${URL}/:id`, AuthenticateJWT, async (req, res) => {
     const { id } = req.params
     const admUser: AdmUser = req.body
 
@@ -49,7 +50,7 @@ app.put(`${URL}/:id`, async (req, res) => {
     }
 })
 
-app.delete(`${URL}/:id`, async (req, res) => {
+app.delete(`${URL}/:id`, AuthenticateJWT, async (req, res) => {
     const { id } = req.params
 
     try {

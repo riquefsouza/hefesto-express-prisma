@@ -14,6 +14,7 @@ import { AdmProfile_schema, MenuItemDTO_schema, AdmProfile_get, AdmProfile_getBy
 from '../../admin/openAPI/admProfile.swagger';
 import { AdmUser_schema, AdmUser_get, AdmUser_getById, AdmUser_post, AdmUser_put, AdmUser_delete }
 from '../../admin/openAPI/admUser.swagger';
+import { LoginForm_schema, Login_auth } from './login.swagger';
 
 export const swaggerDocument = {
     openapi: '3.0.1',
@@ -32,6 +33,10 @@ export const swaggerDocument = {
     servers: [
         {
             url: 'http://localhost:3000/api/v1',
+            description: 'API Local server'
+        },
+        {
+            url: 'http://localhost:3000',
             description: 'Local server'
         },
     ],
@@ -125,6 +130,9 @@ export const swaggerDocument = {
             "put": AdmUser_put,
             "delete": AdmUser_delete
         },
+        "/auth": {
+            "post": Login_auth
+        }
     },
     "components": {
         "schemas": {
@@ -134,7 +142,15 @@ export const swaggerDocument = {
             "AdmParameter": AdmParameter_schema,
             "AdmProfile": AdmProfile_schema,
             "AdmUser": AdmUser_schema,
-            "MenuItemDTO": MenuItemDTO_schema
-        }
+            "MenuItemDTO": MenuItemDTO_schema,
+            "LoginForm": LoginForm_schema
+        },
+        securitySchemes: {
+            bearerAuth: {
+                type: 'http',
+                scheme: 'bearer',
+                bearerFormat: 'JWT'
+            }
+        }        
     }
 }

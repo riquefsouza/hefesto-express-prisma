@@ -25,6 +25,11 @@ export const AdmParameter_schema = {
 }
 
 export const AdmParameter_get = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmParameter"
   ],
@@ -62,6 +67,11 @@ export const AdmParameter_get = {
 }
 
 export const AdmParameter_post = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmParameter"
   ],
@@ -109,6 +119,11 @@ export const AdmParameter_post = {
 }
 
 export const AdmParameter_getById = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
     "tags": [
       "AdmParameter"
     ],
@@ -148,6 +163,11 @@ export const AdmParameter_getById = {
 }
 
 export const AdmParameter_put = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmParameter"
   ],
@@ -189,6 +209,11 @@ export const AdmParameter_put = {
 }
 
 export const AdmParameter_delete = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmParameter"
   ],

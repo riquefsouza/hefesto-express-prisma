@@ -19,6 +19,11 @@ export const AdmParameterCategory_schema = {
 }
 
 export const AdmParameterCategory_get = {
+    "security": [
+        {
+          "bearerAuth": []
+        }
+      ],  
     "tags": [
         "AdmParameterCategory"
     ],
@@ -56,6 +61,11 @@ export const AdmParameterCategory_get = {
 }
 
 export const AdmParameterCategory_post = {
+    "security": [
+        {
+          "bearerAuth": []
+        }
+      ],  
     "tags": [
         "AdmParameterCategory"
     ],
@@ -103,6 +113,11 @@ export const AdmParameterCategory_post = {
 }
 
 export const AdmParameterCategory_getById = {
+    "security": [
+        {
+          "bearerAuth": []
+        }
+      ],  
     "tags": [
         "AdmParameterCategory"
     ],
@@ -142,6 +157,11 @@ export const AdmParameterCategory_getById = {
 }
 
 export const AdmParameterCategory_put = {
+    "security": [
+        {
+          "bearerAuth": []
+        }
+      ],  
     "tags": [
         "AdmParameterCategory"
     ],
@@ -183,6 +203,11 @@ export const AdmParameterCategory_put = {
 }
 
 export const AdmParameterCategory_delete = {
+    "security": [
+        {
+          "bearerAuth": []
+        }
+      ],  
     "tags": [
         "AdmParameterCategory"
     ],

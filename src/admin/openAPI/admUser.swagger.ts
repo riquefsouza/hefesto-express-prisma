@@ -54,6 +54,11 @@ export const AdmUser_schema = {
 }
 
 export const AdmUser_get = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmUser"
   ],
@@ -91,6 +96,11 @@ export const AdmUser_get = {
 }
 
 export const AdmUser_post = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmUser"
   ],
@@ -138,6 +148,11 @@ export const AdmUser_post = {
 }
 
 export const AdmUser_getById = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmUser"
   ],
@@ -177,6 +192,11 @@ export const AdmUser_getById = {
 }
 
 export const AdmUser_put = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmUser"
   ],
@@ -218,6 +238,11 @@ export const AdmUser_put = {
 }
 
 export const AdmUser_delete = {
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "tags": [
     "AdmUser"
   ],
