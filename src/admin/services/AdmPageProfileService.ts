@@ -1,4 +1,4 @@
-import { AdmPageProfile, PrismaClient } from '@prisma/client'
+import { AdmPageProfile, AdmProfile, AdmPage, PrismaClient } from '@prisma/client'
 
 export class AdmPageProfileService {
 
@@ -12,6 +12,44 @@ export class AdmPageProfileService {
         return await this.prisma.admPageProfile.findUnique({
             where: { id: id },
         })
+    }
+
+    public getProfilesByPage(admPageId: number)  {
+        const res = new Promise<AdmProfile[]>((resolve, reject) => {
+            let listProfile: AdmProfile[] = [];
+
+            this.prisma.admPageProfile.findMany({
+                where: { idPage: admPageId },
+                include: { admProfile: true }
+            }).then((admPageProfile: (AdmPageProfile & {admProfile: AdmProfile;})[]) => {
+                admPageProfile.forEach((item: (AdmPageProfile & {admProfile: AdmProfile;})) => {
+                    listProfile.push(item.admProfile)
+                });
+                resolve(listProfile);
+
+            }).catch(err => {
+                reject(err);
+            });
+        });
+        return res;
+    }
+
+    public getPagesByProfile(admProfileId: number): Promise<AdmPage[]> {
+       const res = new Promise<AdmPage[]>((resolve, reject) => {
+            this.prisma.admPageProfile.findMany({
+                where: { idProfile: admProfileId },
+                include: { admPage: true }
+            }).then((admPageProfile: (AdmPageProfile & {admPage: AdmPage;})[]) => {
+                const listPage: AdmPage[] = [];
+                admPageProfile.forEach((item: (AdmPageProfile & {admPage: AdmPage;})) => {
+                    listPage.push(item.admPage)
+                });
+                resolve(listPage);
+            }).catch(err => {
+                reject(err);
+            })
+        });
+        return res;
     }
 
     public async insert(obj: AdmPageProfile) {
@@ -32,4 +70,5 @@ export class AdmPageProfileService {
             where: { id: id },
         })
     }
+
 }

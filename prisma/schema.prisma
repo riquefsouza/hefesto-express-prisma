@@ -55,7 +55,7 @@ model AdmProfile {
   administrator    String?          @default("N") @map("prf_administrator") @db.Char(1)
   description      String           @unique @map("prf_description") @db.VarChar(255)
   general          String?          @default("N") @map("prf_general") @db.Char(1)
-  admPagesProfiles AdmPageProfile[]
+  admPageProfiles  AdmPageProfile[]
   admUserProfiles  AdmUserProfile[]
 
   @@map("adm_profile")

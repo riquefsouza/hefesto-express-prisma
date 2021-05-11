@@ -1,9 +1,16 @@
-import { AdmProfile, PrismaClient } from '@prisma/client'
+import { AdmPageProfile, AdmProfile, PrismaClient } from '@prisma/client'
 import { MenuItemDTO } from '../../base/models/MenuItemDTO';
+import { AdmPageProfileService, AdmUserProfileService } from '../services/index';
 
 export class AdmProfileService {
 
-    constructor(private prisma: PrismaClient) { }
+    private pageProfileService: AdmPageProfileService;
+    private userProfileService: AdmUserProfileService;
+
+    constructor(private prisma: PrismaClient) { 
+        this.pageProfileService = new AdmPageProfileService(prisma);
+        this.userProfileService = new AdmUserProfileService(prisma);
+    }
 
     public async findAll() {
         return await this.prisma.admProfile.findMany();
@@ -39,12 +46,13 @@ export class AdmProfileService {
         throw new Error('Method not implemented.');
     }
 
-    public async findProfilesByUser(userId?: number) {
-        throw new Error('Method not implemented.');
+    public async findProfilesByUser(userId: number) {
+        return await this.userProfileService.getProfilesByUser(userId);
     }
 
-    public async findProfilesByPage(pageId?: number) {
-        throw new Error('Method not implemented.');
+    public async findProfilesByPage(pageId: number): Promise<AdmProfile[]> {
+        return await this.pageProfileService.getProfilesByPage(pageId);
     }
 
 }
+

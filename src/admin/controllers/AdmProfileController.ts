@@ -69,15 +69,18 @@ app.delete(`${URL}/:id`, AuthenticateJWT, async (req, res) => {
 
 app.post(`${URL}/mountMenu`, AuthenticateJWT, async (req, res) => {
     const listaIdProfile: number[] = req.body
-    return await service.mountMenuItem(listaIdProfile)
+    const list = await service.mountMenuItem(listaIdProfile)
+    res.status(StatusCodes.OK).json(list)
 })
 
 app.get(`${URL}/findProfilesByPage/:pageId`, AuthenticateJWT, async (req, res) => {
     const { pageId }: { pageId?: number } = req.params
-    return await service.findProfilesByPage(pageId)
+    const list = await service.findProfilesByPage(Number(pageId));
+    res.status(StatusCodes.OK).json(list)
 })
 
 app.get(`${URL}/findProfilesByUser/:userId`, AuthenticateJWT, async (req, res) => {
     const { userId }: { userId?: number } = req.params
-    return await service.findProfilesByUser(userId);
+    const list = await service.findProfilesByUser(Number(userId));
+    res.status(StatusCodes.OK).json(list)
 })
