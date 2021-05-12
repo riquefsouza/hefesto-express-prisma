@@ -16,8 +16,8 @@ export const cleanAdmPageDTO: AdmPageDTO = {
 export interface AdmPageDTO {
 
     id?: number | null;
-    description?: string;
+    description: string;
     url?: string;
-    admIdProfiles?: number[];
-    pageProfiles?: string;
+    admIdProfiles: number[];
+    pageProfiles: string;
 }

@@ -66,3 +66,9 @@ app.delete(`${URL}/:id`, AuthenticateJWT, async (req, res) => {
             .json({ error: `Parameter Category with ID ${id} does not exist in the database` })
     }
 })
+
+app.post(`${URL}/mountMenu`, AuthenticateJWT, async (req, res) => {
+    const listaIdProfile: number[] = req.body
+    const list = await service.mountMenuItem(listaIdProfile)
+    res.status(StatusCodes.OK).json(list)
+})

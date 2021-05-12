@@ -67,12 +67,6 @@ app.delete(`${URL}/:id`, AuthenticateJWT, async (req, res) => {
     }
 })
 
-app.post(`${URL}/mountMenu`, AuthenticateJWT, async (req, res) => {
-    const listaIdProfile: number[] = req.body
-    const list = await service.mountMenuItem(listaIdProfile)
-    res.status(StatusCodes.OK).json(list)
-})
-
 app.get(`${URL}/findProfilesByPage/:pageId`, AuthenticateJWT, async (req, res) => {
     const { pageId }: { pageId?: number } = req.params
     const list = await service.findProfilesByPage(Number(pageId));
