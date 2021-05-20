@@ -67,7 +67,7 @@ app.delete(`${URL}/:id`, AuthenticateJWT, async (req, res) => {
     }
 })
 
-app.post(`${URL}/mountMenu`, AuthenticateJWT, async (req, res) => {
+app.get(`${API_ROOT}/mountMenu`, AuthenticateJWT, async (req, res) => {
     const listaIdProfile: number[] = req.body
     const list = await service.mountMenuItem(listaIdProfile)
     res.status(StatusCodes.OK).json(list)
